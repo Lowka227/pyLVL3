@@ -1,8 +1,8 @@
-import config
 import telebot
+from config import token
 from random import choice
 
-bot = telebot.TeleBot(config.token)
+bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['help', 'start'])
 def send_welcome(message):
@@ -28,3 +28,4 @@ def send_fact(message):
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
     bot.reply_to(message, message.text)
+    
